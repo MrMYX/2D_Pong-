@@ -9,13 +9,19 @@ public class BallMovement : MonoBehaviour
     Rigidbody2D ballRigidBody;
     Vector2 ballDirection;
 
-    Vector2 minBounds;
-    Vector2 maxBounds;
-    
+
+    public Vector2 RandomVector2(float angle, float angleMax, float angleMin)
+    {
+        float posMin = Mathf.Sign(Random.Range(-1,1));
+        float random = angleMax - Random.value * angle * posMin + angleMin;
+        float random1 = angleMax - Random.value * angle * posMin + angleMin;
+        return new Vector2(Mathf.Cos(random), Mathf.Sin(random1));
+    }
+
     void Start()
     {
         ballRigidBody = GetComponent<Rigidbody2D>();
-        ballDirection = new Vector2(Random.Range(-0.5f,0.5f),Random.Range(-0.5f,0.5f));
+        ballDirection = RandomVector2(7f, 35f, 5);
         ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
     }
 
