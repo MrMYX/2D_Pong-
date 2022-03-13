@@ -5,24 +5,17 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     BallSpawner ballSpawner;
-    [SerializeField] float ballSpeed = 30f;
+    [SerializeField] float ballSpeed = 200f;
     Rigidbody2D ballRigidBody;
     Vector2 ballDirection;
 
 
-    public Vector2 RandomVector2(float angle, float angleMax, float angleMin)
-    {
-        float posMin = Mathf.Sign(Random.Range(-1,1));
-        float random = angleMax - Random.value * angle * posMin + angleMin;
-        float random1 = angleMax - Random.value * angle * posMin + angleMin;
-        return new Vector2(Mathf.Cos(random), Mathf.Sin(random1));
-    }
 
     void Start()
     {
         ballRigidBody = GetComponent<Rigidbody2D>();
-        ballDirection = RandomVector2(7f, 35f, 5);
         ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
+        StartMovement();
     }
 
     void FixedUpdate()
@@ -30,9 +23,15 @@ public class BallMovement : MonoBehaviour
         ballRigidBody.velocity = ballDirection * ballSpeed;
     }
     void StartMovement()
-    {
-        ballDirection = new Vector2(Random.Range(-1,1),Random.Range(-1,1));
+    {    
+        float x = Random.value < 0.5f ? -1.0f : 1.0f;
+        float y = Random.value < 0.5f ? Random.Range(-1.0f, -0.5f):
+                                    Random.Range(0.5f, 1.0f);
+        
+        ballDirection = new Vector2(x, y);
         ballRigidBody.velocity = ballDirection * ballSpeed;
+        ballRigidBody.AddForce(ballDirection * ballSpeed);
+
     }
 
 
