@@ -1,27 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
-    public bool isBallAlive = true;
+    GameObject clone;
+    public List<GameObject> _clones = new List<GameObject>();
+    [HideInInspector] public bool isBallAlive = false;
     [SerializeField] GameObject ballPrefab;
-    void Awake()
-    {
-
-    }
-    void Start()
-    {
-        CreateStartBall();
-    }
-
-    void CreateStartBall()
-    {
-        Instantiate(ballPrefab,
-                    gameObject.transform.position,
-                    Quaternion.identity);
-    }
-
     void Update()
     {
         if(!isBallAlive)
@@ -33,8 +20,15 @@ public class BallSpawner : MonoBehaviour
     {
         isBallAlive = true;
         yield return new WaitForSeconds(1f);
-        Instantiate(ballPrefab,
+        clone = Instantiate(ballPrefab,
                     gameObject.transform.position,
                     Quaternion.identity);
+        SetInstanceBall();
+
+    } 
+    public GameObject SetInstanceBall()
+    {
+        return clone;
     }
+
 }

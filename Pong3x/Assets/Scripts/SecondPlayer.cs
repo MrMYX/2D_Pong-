@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SecondPlayer : MonoBehaviour
+public class SecondPlayer : Paddle
 {
     Vector2 moveInput;
-    [SerializeField] float secondPlayerMoveSpeed = 5f;
-    Rigidbody2D myrigidbody;
     public Transform boundaries;
 
     Boundary playerBoundary;
@@ -24,7 +22,7 @@ public class SecondPlayer : MonoBehaviour
 
     void Start()
     {
-        myrigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         playerBoundary = new Boundary(boundaries.GetChild(0).position.y,
                                       boundaries.GetChild(1).position.y,
                                       boundaries.GetChild(2).position.x,
@@ -43,8 +41,8 @@ public class SecondPlayer : MonoBehaviour
 
     void SecondPlayerUpDown()
     {
-        Vector2 secondPlayerVelocity = new Vector2(myrigidbody.velocity.x, moveInput.y * secondPlayerMoveSpeed);
-        myrigidbody.velocity = secondPlayerVelocity;
+        Vector2 secondPlayerVelocity = new Vector2(_rigidbody.velocity.x, moveInput.y * Speed);
+        _rigidbody.velocity = secondPlayerVelocity;
 
         Vector2 clampedSecondPlayer = new Vector2(Mathf.Clamp(transform.position.x, 
                                                              playerBoundary.Left,
