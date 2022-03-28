@@ -6,7 +6,6 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     GameObject clone;
-    public List<GameObject> _clones = new List<GameObject>();
     [HideInInspector] public bool isBallAlive = false;
     [SerializeField] GameObject ballPrefab;
     void Update()
@@ -23,8 +22,6 @@ public class BallSpawner : MonoBehaviour
         clone = Instantiate(ballPrefab,
                     gameObject.transform.position,
                     Quaternion.identity);
-        SetInstanceBall();
-
     } 
     public GameObject SetInstanceBall()
     {

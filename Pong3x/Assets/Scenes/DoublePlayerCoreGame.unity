@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5deeefad028a6fe44bf96b4d3d87a9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondPlayerMoveSpeed: 10
+  Speed: 15
   boundaries: {fileID: 747877907}
 --- !u!1 &519420028
 GameObject:
@@ -430,6 +430,10 @@ PrefabInstance:
     - target: {fileID: 1832324761205600761, guid: 13711dc8e6400af4ca358f1b7c6f0879, type: 3}
       propertyPath: m_Name
       value: BallSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832324761205600762, guid: 13711dc8e6400af4ca358f1b7c6f0879, type: 3}
+      propertyPath: isBallAlive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1832324761205600763, guid: 13711dc8e6400af4ca358f1b7c6f0879, type: 3}
       propertyPath: m_RootOrder

@@ -8,8 +8,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] float ballSpeed = 200f;
     Rigidbody2D ballRigidBody;
     Vector2 ballDirection;
-
-
+    [SerializeField] Sprite ballSprite;
 
     void Start()
     {
