@@ -420,6 +420,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4107249336054863969, guid: 9a8bfb15caae13745ab837cc653cc6d9, type: 3}
   m_PrefabInstance: {fileID: 4107249336738116275}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2123225607
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1785340353943551649, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_Name
+      value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608118367775296445, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608118367775296445, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135058026019442482, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334933568380999535, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: ballSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334933568380999535, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
+      propertyPath: ballSprite
+      value: 
+      objectReference: {fileID: -6110656803992641779, guid: 988b532471ed74f4194f62a291bc0711, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 911d7daa4db4b044cb1821593c869dcf, type: 3}
 --- !u!1001 &1832324762772144412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -430,6 +503,14 @@ PrefabInstance:
     - target: {fileID: 1832324761205600761, guid: 13711dc8e6400af4ca358f1b7c6f0879, type: 3}
       propertyPath: m_Name
       value: BallSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832324761205600761, guid: 13711dc8e6400af4ca358f1b7c6f0879, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832324761205600762, guid: 13711dc8e6400af4ca358f1b7c6f0879, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1832324761205600762, guid: 13711dc8e6400af4ca358f1b7c6f0879, type: 3}
       propertyPath: isBallAlive

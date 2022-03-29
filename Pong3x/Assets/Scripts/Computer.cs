@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Computer : Paddle
 {
-    Rigidbody2D ball;
+    public Rigidbody2D ball;
     BallSpawner ballSpawner;
     private void Awake()
     {
-        ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
+      //  ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
     }
 
     void FixedUpdate()
     {
         ComputerPaddleAI();
-        if (ballSpawner.SetInstanceBall() != null)
+    /*    if (ballSpawner.SetInstanceBall() != null)
         {
             ball = ballSpawner.SetInstanceBall().GetComponent<Rigidbody2D>();
-        }
+        }*/
     }
 
     void ComputerPaddleAI()
