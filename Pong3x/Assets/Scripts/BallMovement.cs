@@ -13,6 +13,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] Sprite ballSprite;
     SpriteRenderer spriteRenderer;
     ScoreKeeper scoreKeeper;
+    [SerializeField] AudioClip paddleClip, wallClip, endWallClip;
 
 
     void Awake()
@@ -49,19 +50,23 @@ public class BallMovement : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(paddleClip, this.gameObject.transform.position);
             ballDirection.x = -ballDirection.x;
         }
         else if(other.gameObject.tag == "Wall")
         {
+            AudioSource.PlayClipAtPoint(wallClip, this.gameObject.transform.position);
             ballDirection.y = -ballDirection.y;
         }
         else if(other.gameObject.tag == "LeftEndWall")
         {
+            AudioSource.PlayClipAtPoint(endWallClip, this.gameObject.transform.position);
             scoreKeeper.IncreaseRightScore();
             ResetBall();
         }
         else if(other.gameObject.tag == "RightEndWall")
         {
+            AudioSource.PlayClipAtPoint(endWallClip, this.gameObject.transform.position);
             scoreKeeper.IncreaseLeftScore();
             ResetBall();
         }

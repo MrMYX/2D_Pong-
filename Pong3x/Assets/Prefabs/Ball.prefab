@@ -101,7 +101,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: cdc135383c8472849957439ff2e1479e, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -135,3 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballSpeed: 5
+  ballSprite: {fileID: -6110656803992641779, guid: 988b532471ed74f4194f62a291bc0711, type: 3}
+  paddleClip: {fileID: 8300000, guid: a3149a6cf2d41cf4b8ad8db55b8b65e9, type: 3}
+  wallClip: {fileID: 8300000, guid: 33c0814469e69ab46b69a942be43a0ea, type: 3}
+  endWallClip: {fileID: 8300000, guid: 0db99c0d1a017d04b990577fc8bbb9dd, type: 3}
