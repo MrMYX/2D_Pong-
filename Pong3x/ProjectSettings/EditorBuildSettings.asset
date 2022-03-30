@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartGameMenu.unity
+    guid: aacc439d42a651340915e66a6de19a1a
+  - enabled: 1
     path: Assets/Scenes/DoublePlayerCoreGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/SinglePlayerCoreGame.unity
+    guid: 74f06e6b36e7f5e4faff4c1f9b2247fd
+  - enabled: 1
+    path: Assets/Scenes/GameOverMenu(SinglePlayer).unity
+    guid: 3de68522bb516bb4d966c13e5f5c5e78
+  - enabled: 1
+    path: Assets/Scenes/GameOverMenu(DoublePlayer).unity
+    guid: 5f754f036cb9316408d3b0d0d80669a7
   m_configObjects: {}

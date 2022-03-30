@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - EndWall
+  - RightEndWall
+  - LeftEndWall
   layers:
   - Default
   - TransparentFX

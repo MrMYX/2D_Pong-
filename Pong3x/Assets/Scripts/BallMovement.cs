@@ -12,10 +12,12 @@ public class BallMovement : MonoBehaviour
     Vector2 ballDirection;
     [SerializeField] Sprite ballSprite;
     SpriteRenderer spriteRenderer;
+    ScoreKeeper scoreKeeper;
 
 
     void Awake()
     {
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
         ballTransform = GetComponent<Transform>(); 
         ballRigidBody = GetComponent<Rigidbody2D>();
         ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
@@ -53,8 +55,14 @@ public class BallMovement : MonoBehaviour
         {
             ballDirection.y = -ballDirection.y;
         }
-        if(other.gameObject.tag == "EndWall")
+        else if(other.gameObject.tag == "LeftEndWall")
         {
+            scoreKeeper.IncreaseRightScore();
+            ResetBall();
+        }
+        else if(other.gameObject.tag == "RightEndWall")
+        {
+            scoreKeeper.IncreaseLeftScore();
             ResetBall();
         }
     }
