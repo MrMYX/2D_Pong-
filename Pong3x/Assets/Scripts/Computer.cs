@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Computer : Paddle
 {
-    public Rigidbody2D ball;
+    Rigidbody2D ball;
     BallSpawner ballSpawner;
+    Rigidbody2D myrb;    
     private void Awake()
-    {
-      //  ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
+    {      
+        SetBall();
+        myrb = GetComponent<Rigidbody2D>();
+        //  ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
     }
 
     void FixedUpdate()
     {
         ComputerPaddleAI();
-    /*    if (ballSpawner.SetInstanceBall() != null)
-        {
-            ball = ballSpawner.SetInstanceBall().GetComponent<Rigidbody2D>();
-        }*/
+    }
+
+    private void SetBall()
+    {
+        ball = GameObject.Find("Ball").GetComponent<Rigidbody2D>();
     }
 
     void ComputerPaddleAI()
@@ -27,28 +31,28 @@ public class Computer : Paddle
             if (ball.velocity.x > 0.0f)
             {
                 Debug.Log("1");
-                if (ball.position.y > transform.position.y && ball != null)
+                if (ball.position.y > this.transform.position.y)
                 {
                     Debug.Log("2");
-                    _rigidbody.velocity = Vector2.up * Speed * Time.deltaTime;
+                    this.myrb.velocity = Vector2.up * this.Speed * Time.deltaTime;
                 }
-                else if (ball.position.y < transform.position.y && ball != null)
+                else if (ball.position.y < this.transform.position.y)
                 {
                     Debug.Log("3");
-                    _rigidbody.velocity = Vector2.down * Speed * Time.deltaTime;
+                    this.myrb.velocity = Vector2.down * this.Speed * Time.deltaTime;
                 }
             }
             else
             {
-                if (transform.position.y > 0.0f && ball != null)
+                if (transform.position.y > 1.1f)
                 {
                     Debug.Log("5");
-                    _rigidbody.velocity = Vector2.down * Speed * Time.deltaTime;
+                    this.myrb.velocity = Vector2.down * this.Speed * Time.deltaTime;
                 }
-                else if (transform.position.y < 0.0f && ball != null)
+                else if (transform.position.y < -1.1f)
                 {
                     Debug.Log("6");
-                    _rigidbody.velocity = Vector2.up * Speed * Time.deltaTime;
+                    this.myrb.velocity = Vector2.up * this.Speed * Time.deltaTime;
                 }
             }
         }
