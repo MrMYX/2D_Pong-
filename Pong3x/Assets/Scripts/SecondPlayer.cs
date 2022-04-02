@@ -7,7 +7,7 @@ public class SecondPlayer : Paddle
 {
     Vector2 moveInput;
     public Transform boundaries;
-
+    GameManager gameManager;
     Boundary playerBoundary;
 
     struct Boundary
@@ -19,9 +19,14 @@ public class SecondPlayer : Paddle
  
         }
     }
+    void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     void Start()
     {
+        gameManager.isSinglePlayer = false;
         _rigidbody = GetComponent<Rigidbody2D>();
         playerBoundary = new Boundary(boundaries.GetChild(0).position.y,
                                       boundaries.GetChild(1).position.y,

@@ -19,7 +19,7 @@ public class BallMovement : MonoBehaviour
     void Awake()
     {
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
-        ballTransform = GetComponent<Transform>(); 
+        ballTransform = GetComponent<Transform>();
         ballRigidBody = GetComponent<Rigidbody2D>();
         ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,38 +34,37 @@ public class BallMovement : MonoBehaviour
         ballRigidBody.velocity = ballDirection * ballSpeed;
     }
     void SetStartMovement()
-    {    
+    {
         float x = Random.value < 0.5f ? -1.0f : 1.0f;
-        float y = Random.value < 0.5f ? Random.Range(-1.0f, -0.5f):
+        float y = Random.value < 0.5f ? Random.Range(-1.0f, -0.5f) :
                                     Random.Range(0.5f, 1.0f);
 
         ballDirection = new Vector2(x, y);
         ballRigidBody.velocity = ballDirection * ballSpeed;
-        //ballRigidBody.AddForce(ballDirection * ballSpeed);
-
     }
 
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             AudioSource.PlayClipAtPoint(paddleClip, this.gameObject.transform.position);
             ballDirection.x = -ballDirection.x;
         }
-        else if(other.gameObject.tag == "Wall")
+        else if (other.gameObject.tag == "Wall")
         {
             AudioSource.PlayClipAtPoint(wallClip, this.gameObject.transform.position);
             ballDirection.y = -ballDirection.y;
         }
-        else if(other.gameObject.tag == "LeftEndWall")
+        else if (other.gameObject.tag == "LeftEndWall")
         {
             AudioSource.PlayClipAtPoint(endWallClip, this.gameObject.transform.position);
             scoreKeeper.IncreaseRightScore();
             ResetBall();
         }
-        else if(other.gameObject.tag == "RightEndWall")
+        else if (other.gameObject.tag == "RightEndWall")
         {
+            Debug.Log("dead");
             AudioSource.PlayClipAtPoint(endWallClip, this.gameObject.transform.position);
             scoreKeeper.IncreaseLeftScore();
             ResetBall();

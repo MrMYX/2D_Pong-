@@ -6,28 +6,44 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [HideInInspector] public bool isSinglePlayer;
-    public TextMeshProUGUI GameOverScore;
     ScoreKeeper scoreKeeper;
+
+    public bool isSinglePlayer = false;
+    void Awake()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2){ scoreKeeper = FindObjectOfType<ScoreKeeper>(); }
+    }
     public void StartSinglePlayer()
     {
-        scoreKeeper.ResetScores();
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2){ scoreKeeper.ResetScores(); }
         SceneManager.LoadScene(1);
-        isSinglePlayer = true;
+        if(!isSinglePlayer){ isSinglePlayer = true; }
     }
     public void StartDoublePlayer()
     {
-        scoreKeeper.ResetScores();
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2){ scoreKeeper.ResetScores(); }
         SceneManager.LoadScene(2);
-        isSinglePlayer = false;
+        if(isSinglePlayer){ isSinglePlayer = false; }
+    }
+
+    public void RestartGame()
+    {
+        if (isSinglePlayer)
+        {
+            StartSinglePlayer();
+        }
+        else if (!isSinglePlayer)
+        {
+            StartDoublePlayer();
+        }
     }
     public void GoGameOver()
     {
-        if(isSinglePlayer)
+        if (isSinglePlayer)
         {
             SceneManager.LoadScene(3);
         }
-        else if(!isSinglePlayer)
+        else if (!isSinglePlayer)
         {
             SceneManager.LoadScene(4);
         }
@@ -37,19 +53,19 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    void Awake()
-    {
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
-    }
+
     void Update()
     {
         EndGame();
     }
     public void EndGame()
     {
-        if(scoreKeeper.GetLeftScore() == 3 || scoreKeeper.GetRightScore() == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2)
         {
-            GoGameOver();
+            if (scoreKeeper.GetLeftScore() == 3 || scoreKeeper.GetRightScore() == 3)
+            {
+                GoGameOver();
+            }
         }
     }
 }

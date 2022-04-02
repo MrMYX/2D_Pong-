@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class ScoreKeeper : MonoBehaviour
 {
+    
     int leftScore = 0;
     int rightScore = 0;
     public TextMeshProUGUI leftScoreText;
@@ -31,8 +33,8 @@ public class ScoreKeeper : MonoBehaviour
         rightScore = 0;
     }
     void FixedUpdate()
-    {
+    { 
         leftScoreText.text = leftScore.ToString();
-        rightScoreText.text = rightScore.ToString();
+        rightScoreText.text = rightScore.ToString();    
     }
 }

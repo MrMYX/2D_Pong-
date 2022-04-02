@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 161884106}
   - component: {fileID: 161884105}
   m_Layer: 5
-  m_Name: StartGameCanvas
+  m_Name: GameOverCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,6 +906,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7516072057352273988, guid: 19dd21353fce1244195ff4a6e4a4bc97, type: 3}
+      propertyPath: _ScoreKeeper
+      value: 
+      objectReference: {fileID: 1158331927581128029, guid: a42b218fd4e1b874ab3bdc7dc93879b0, type: 3}
+    - target: {fileID: 7516072057352273988, guid: 19dd21353fce1244195ff4a6e4a4bc97, type: 3}
+      propertyPath: isSinglePlayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19dd21353fce1244195ff4a6e4a4bc97, type: 3}
 --- !u!114 &1707628270 stripped
@@ -1296,7 +1304,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1707628270}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartSinglePlayer
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

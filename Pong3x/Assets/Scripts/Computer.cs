@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Computer : Paddle
 {
+    GameManager gameManager;
     Rigidbody2D ball;
     BallSpawner ballSpawner;
     Rigidbody2D myrb;    
     private void Awake()
     {      
+        gameManager = FindObjectOfType<GameManager>();
         SetBall();
         myrb = GetComponent<Rigidbody2D>();
         //  ballSpawner = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
+    }
+    void Start()
+    {
+        gameManager.isSinglePlayer = true;
     }
 
     void FixedUpdate()
