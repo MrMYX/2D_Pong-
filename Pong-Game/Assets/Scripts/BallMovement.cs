@@ -75,6 +75,7 @@ public class BallMovement : MonoBehaviour
     {
         ballSpawner.isBallAlive = false;
         this.spriteRenderer.enabled = false;
+        this.ballRigidBody.isKinematic = true;
         StartCoroutine(SetNewBall());
     }
 
@@ -86,6 +87,7 @@ public class BallMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         ballSpawner.isBallAlive = true;
+        this.ballRigidBody.isKinematic = false;
         SetStartPoint();
         this.spriteRenderer.enabled = true;
         SetStartMovement();
